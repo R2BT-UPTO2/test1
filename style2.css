@@ -94,7 +94,7 @@ body{
 .full_logo_container{
     display: none;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 300px;
     animation-duration: 4s;
     animation-fill-mode: forwards;
 }

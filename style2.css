@@ -32,7 +32,7 @@ body{
 }
 
 .all_container{
-    margin-top: 30px;
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -47,36 +47,25 @@ body{
     margin-right: auto;
     border: 2px solid #1c387d;
     border-radius: 1rem;
-    width: 900px;
+    width: 500px;
     height: 600px;
-    animation-name: init_main_container;
     animation-duration: 2s;
     animation-fill-mode: forwards;
 }
 
-@keyframes init_main_container{
-    from{
-        width: 500px;
-    }to{
-        width: 900px;
-    }
-}
-
 @keyframes cardNews_main_container{
     from{
-        width: 900px;
+        height: 600px;
     }to{
-        width: 500px;
+        height: 500px;
     }
 }
 
 @keyframes quiz_main_container{
     from{
-        width: 500px;
-        height: 600px;
+        height: 500px;
     }to{
-        width: 900px;
-        height: 300px;
+        height: 400px;
     }
 }
 
@@ -90,7 +79,7 @@ body{
     from{
         margin-top: 30px;
     }to{
-        margin-top: 70px;
+        margin-top: 40px;
     }
 }
 

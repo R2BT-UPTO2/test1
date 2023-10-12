@@ -13,6 +13,7 @@ let next_bt_click = () => {
         setTimeout(()=>{
             document.querySelector('.all_container').style.display = 'block';
             document.querySelector('.full_logo_container').style.display = 'none';
+            document.querySelector('#second_logo').src = 'img/logo_black.png';
         }, 5000);
     }
 

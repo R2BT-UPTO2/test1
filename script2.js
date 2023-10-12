@@ -74,6 +74,15 @@ let next_bt_click = () => {
         document.querySelector('#main_img').style.display = 'none';
         document.querySelector('.bt_container').style.display = 'none';
         document.querySelector('.main_container').innerHTML += '<h1 style = "color: yellow; text-align: center; font-size: 50px;">MAP배경 + <br> 5개 포탈 넣어야함.</h1>';
+        
+        document.querySelector('.main_container').innerHTML += `
+            <div>
+                <input type = "button" style = "width: 200px; height:50px; font-size: 40px; margin: 10px;" value = "마을 이동 포탈1" onclick = "location.href = 'page1.html'"><input type = "button" style = "margin: 10px; width: 200px; height:50px; font-size: 40px;" value = "마을 이동 포탈2" onclick = "location.href = 'page2.html'">
+                <input type = "button" style = "width: 200px; height:50px; font-size: 40px; margin: 10px;" value = "마을 이동 포탈3" onclick = "location.href = 'page3.html'">
+                <input type = "button" style = "width: 200px; height:50px; font-size: 40px; margin: 10px;" value = "마을 이동 포탈4" onclick = "location.href = 'page4.html'"><input type = "button" style = "margin: 10px; width: 200px; height:50px; font-size: 40px;" value = "마을 이동 포탈5" onclick = "location.href = 'page5.html'">
+                
+            </div>
+        `;
     }
 };
 

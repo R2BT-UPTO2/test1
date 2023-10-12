@@ -53,6 +53,14 @@ body{
     animation-fill-mode: forwards;
 }
 
+@keyframes cardToInit_main_container{
+    from{
+        height: 400px;
+    }to{
+        height: 600px;
+    }
+}
+
 @keyframes cardNews_main_container{
     from{
         height: 600px;

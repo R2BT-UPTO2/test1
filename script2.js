@@ -51,6 +51,7 @@ let next_bt_click = () => {
         document.querySelector('#main_img').style.display = 'inline';
         document.querySelector('#main_img').src = `img/story${img_num}.png`;
         document.querySelector('#main_img').style.height = '500px';
+        document.querySelector('.main_container').style.animationName = 'cardToInit_main_container';
         document.querySelector('.bt_container').style.display = 'block';
         document.querySelector('.bt_container').style.animationName = 'basic_bt_container';
     }

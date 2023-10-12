@@ -4,7 +4,8 @@ let user_score = 50;
 
 let next_bt_click = () => {
     img_num++;
-    // document. img 주소 변경
+    console.log(img_num);
+
     if (img_num == 10){
         document.querySelector('.all_container').style.display = 'none';
         document.querySelector('.full_logo_container').style.display = 'block';
@@ -45,7 +46,6 @@ let next_bt_click = () => {
     }
 
     if (img_num == 19){
-        console.log('0');
         document.querySelector('.main_container').style.animationName = 'init_main_container';
         document.querySelector('.quiz_container').innerHTML = '';
         document.querySelector('#main_img').style.display = 'inline';
@@ -56,8 +56,24 @@ let next_bt_click = () => {
         document.querySelector('.bt_container').style.animationName = 'basic_bt_container';
     }
     
-    if (img_num > 19){
+    if ((img_num > 19) && (img_num <= 26)){
         document.querySelector('#main_img').src = `img/story${img_num}.png`;
+    }
+
+    if (img_num == 27){
+        document.querySelector('.main_container').style.backgroundImage = `url('img/map_bg.png')`;
+        document.querySelector('.main_container').style.backgroundRepeat = 'no-repeat';
+        document.querySelector('.main_container').style.backgroundSize = 'cover';
+        setTimeout(()=>{
+            document.querySelector('.effect_container').style.animationName = 'width_full_effect';
+            document.querySelector('.main_container').style.border = 'none';
+        },1000);
+        
+        document.querySelector('#second_logo').src = 'img/logo_white_real.png';
+        document.querySelector('body').style.animationName = 'map_body';
+        document.querySelector('#main_img').style.display = 'none';
+        document.querySelector('.bt_container').style.display = 'none';
+        document.querySelector('.main_container').innerHTML += '<h1 style = "color: yellow; text-align: center; font-size: 50px;">MAP배경 + <br> 5개 포탈 넣어야함.</h1>';
     }
 };
 

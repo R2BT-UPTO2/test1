@@ -31,6 +31,16 @@ body{
     }
 }
 
+@keyframes map_body{
+    from{
+        background-color: white;
+        opacity: 0;
+    }to{
+        background-color: black;
+        opacity: 1;
+    }
+}
+
 .all_container{
     margin-top: 50px;
     text-align: center;
@@ -122,6 +132,24 @@ body{
 .ans:hover{
     background-color: rgb(57, 148, 223);
     color: white;
+}
+
+.effect_container{
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes width_full_effect{
+    from{
+        width: 400px;
+        border: 2px solid #1c387d;
+    }to{
+        width: 100%;
+        border-top: 2px solid rgb(255, 255, 255);
+        border-bottom: 2px solid rgb(255, 255, 255);
+    }
 }
 
 /* ______________________________________________________________________________________________________________ */

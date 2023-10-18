@@ -1,6 +1,9 @@
 let img_num = 0;
 const first_bridge = 15;
 let user_score = 50;
+let clear = 0;
+let stage_num = 0;
+let stage_now = [0,0,0,0,0];
 
 let next_bt_click = () => {
     img_num++;
@@ -75,17 +78,34 @@ let next_bt_click = () => {
         document.querySelector('body').style.animationName = 'map_body';
         document.querySelector('#main_img').style.display = 'none';
         document.querySelector('.bt_container').style.display = 'none';
+        document.querySelector('.main_container').style.border = 'none';
         document.querySelector('.main_container').innerHTML += `
-            <div>
-                <img src = "img/door.gif" id = "map_door0" class = "map_door"><br>
-                <img src = "img/door.gif" id = "map_door1" class = "map_door"><br>
-                <img src = "img/door.gif" id = "map_door2" class = "map_door"><br>
-                <img src = "img/door.gif" id = "map_door3" class = "map_door">
-                <img src = "img/door.gif" id = "map_door4" class = "map_door">
-
+            <div class = "explain_container">
+                <div class = "black_sub">  
+                    <h1 style = "color: white;">" 각 스테이지로 이어진 포탈을 클릭해 흩어진 블록을 찾자! "</h1><br>
+                </div>
+                <div class="button_base b07_3d_double_roll" onclick = "next_bt_click()" style = "margin-top: 0;">
+                        <div>다음</div>
+                        <div>다음</div>
+                        <div>다음</div>
+                        <div>다음</div>
+                </div>
+            </div>
+            <div class = "door_box" style = "display: none;">
+                <img src = "img/door.gif" id = "map_door0" value = "zero" class = "map_door" onclick = "stage_0();"><br>
+                <img src = "img/door.gif" id = "map_door1" value = "first" class = "map_door" onclick = "alert('1');"><br>
+                <img src = "img/door.gif" id = "map_door2" value = "second" class = "map_door" onclick = "alert('2');"><br>
+                <img src = "img/door.gif" id = "map_door3" value = "third" class = "map_door" onclick = "alert('3');">
+                <img src = "img/door.gif" id = "map_door4" value = "fourth" class = "map_door" onclick = "alert('4');">
             </div>
         `;
     }
+
+    if (img_num == 28){
+        document.querySelector('.explain_container').style.display = 'none';
+        document.querySelector('.door_box').style.display = 'block';
+    }
+
     setTimeout(()=>{
         document.querySelector('#main_img').style.animationName = 'main_img_basic';
     },500); 
@@ -109,4 +129,58 @@ let score_up = () => {
     if (!(user_score == 100)){
         user_score += 100;
     }
-}
+};
+
+let stage_0 = () => {
+    stage_now = [1,0,0,0,0]; // 마지막에 초기화 시키기
+    stage_num++;
+    if (stage_num == 1){
+        document.querySelector('.main_container').style.display = 'none';
+        document.querySelector('.each_stage_container').style.display = 'block';
+        document.querySelector('.each_stage_container').style.animationName = 'init_each_stage_container';
+        document.querySelector('.text_space').innerHTML += `<h1 style = "color: white;">
+            "<br>
+            이 곳은 디지털 자산 마을이야!<br>
+            <br>
+            마을 곳곳에 디지털 자산과 관련된 안내 포스터가 붙어있어..<br>
+            <br>
+            안내 포스터를 천천히 읽어보며 블록을 찾아보자!
+            <br>
+            "</h1>
+        `;
+    }
+    if (stage_num == 2){
+        document.querySelector('.explain_box').style.display = 'none';
+        document.querySelector('.each_stage_container').style.animationName = 'up_each_stage_container';
+        setTimeout(() => {
+            document.querySelector('#stage_img').style.display = 'inline';
+            document.querySelector('#stage_img').src = `img/stageBgzero.png`;
+            document.querySelector('.bt_container_2').style.display = 'block';
+        }, 2000);
+    }
+
+    if (stage_num == 3){
+        document.querySelector('.each_stage_container').style.animationName = 'init_each_stage_container';
+        document.querySelector('#stage_img').src = `img/stage0_card${stage_num}.png`;
+    }
+
+    if (stage_num > 3){
+        document.querySelector('#stage_img').src = `img/stage0_card${stage_num}.png`;
+    }
+
+    if (stage_num == 7){
+        //여기 해야됨 1:22
+    }
+};
+
+let check_stage = () => {
+    for (let i = 0; i < stage_now.length; i++){
+        if (stage_now[i] == 1){
+            if (i==0) stage_0();
+            else if (i==1) stage_1();
+            else if (i==2) stage_2();
+            else if (i==3) stage_3();
+            else if (i==4) stage_4();
+        }
+    }
+};

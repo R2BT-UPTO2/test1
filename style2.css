@@ -36,12 +36,14 @@ body{
         background-color: white;
         opacity: 0;
     }to{
-        background-color: black;
+        background-color: rgb(6, 18, 78);
         opacity: 1;
     }
 }
 
 .all_container{
+    position: relative;
+    z-index:+1;
     margin-top: 50px;
     text-align: center;
 }
@@ -141,17 +143,68 @@ body{
     margin-right: auto;
 }
 
-@keyframes width_full_effect{
+@keyframes effect_black{
     from{
-        width: 400px;
-        border: 2px solid #1c387d;
+        background-color: none;
     }to{
-        width: 100%;
-        border-top: 2px solid rgb(255, 255, 255);
-        border-bottom: 2px solid rgb(255, 255, 255);
+        background-color: white;
     }
 }
 
+#main_img{
+    border-radius: 1rem;
+    
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes init_main_img{
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
+
+@keyframes main_img_basic{
+    from{
+        opacity:0.8;
+    }to{
+        opacity: 1;
+    }
+}
+
+.map_door{
+    width:100px;
+    height:100px;
+}
+
+#map_door0{
+    position: relative;
+    margin-right: 250px;
+}
+
+#map_door1{
+    position: relative;
+    margin-left:370px;
+}
+
+#map_door2{
+    position: relative;
+    margin-top: 50px;
+    margin-right: 370px;
+}
+
+#map_door3{
+    position: relative;
+    margin-left: 360px;
+    margin-top: 10px;
+}
+
+#map_door4{
+    position: relative;
+    margin-right: 200px;
+}
 /* ______________________________________________________________________________________________________________ */
 
 .button_base {

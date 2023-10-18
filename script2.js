@@ -4,6 +4,7 @@ let user_score = 50;
 
 let next_bt_click = () => {
     img_num++;
+    document.querySelector('#main_img').style.animationName = 'init_main_img';
     console.log(img_num);
 
     if (img_num == 10){
@@ -58,32 +59,36 @@ let next_bt_click = () => {
     
     if ((img_num > 19) && (img_num <= 26)){
         document.querySelector('#main_img').src = `img/story${img_num}.png`;
+
+        if (img_num == 22){
+            document.querySelector('#main_img').src = `img/story${img_num}.gif`;
+        }
     }
 
     if (img_num == 27){
         document.querySelector('.main_container').style.backgroundImage = `url('img/map_bg.png')`;
         document.querySelector('.main_container').style.backgroundRepeat = 'no-repeat';
         document.querySelector('.main_container').style.backgroundSize = 'cover';
-        setTimeout(()=>{
-            document.querySelector('.effect_container').style.animationName = 'width_full_effect';
-            document.querySelector('.main_container').style.border = 'none';
-        },1000);
         
         document.querySelector('#second_logo').src = 'img/logo_white_real.png';
+        document.querySelector('body').style.animationDuration = '5s';
         document.querySelector('body').style.animationName = 'map_body';
         document.querySelector('#main_img').style.display = 'none';
         document.querySelector('.bt_container').style.display = 'none';
-        document.querySelector('.main_container').innerHTML += '<h1 style = "color: yellow; text-align: center; font-size: 50px;">MAP배경 + <br> 5개 포탈 넣어야함.</h1>';
-        
         document.querySelector('.main_container').innerHTML += `
             <div>
-                <input type = "button" style = "width: 200px; height:50px; font-size: 40px; margin: 10px;" value = "마을 이동 포탈1" onclick = "location.href = 'page1.html'"><input type = "button" style = "margin: 10px; width: 200px; height:50px; font-size: 40px;" value = "마을 이동 포탈2" onclick = "location.href = 'page2.html'">
-                <input type = "button" style = "width: 200px; height:50px; font-size: 40px; margin: 10px;" value = "마을 이동 포탈3" onclick = "location.href = 'page3.html'">
-                <input type = "button" style = "width: 200px; height:50px; font-size: 40px; margin: 10px;" value = "마을 이동 포탈4" onclick = "location.href = 'page4.html'"><input type = "button" style = "margin: 10px; width: 200px; height:50px; font-size: 40px;" value = "마을 이동 포탈5" onclick = "location.href = 'page5.html'">
-                
+                <img src = "img/door.gif" id = "map_door0" class = "map_door"><br>
+                <img src = "img/door.gif" id = "map_door1" class = "map_door"><br>
+                <img src = "img/door.gif" id = "map_door2" class = "map_door"><br>
+                <img src = "img/door.gif" id = "map_door3" class = "map_door">
+                <img src = "img/door.gif" id = "map_door4" class = "map_door">
+
             </div>
         `;
     }
+    setTimeout(()=>{
+        document.querySelector('#main_img').style.animationName = 'main_img_basic';
+    },500); 
 };
 
 let quiz0_answer = (x) => { // x는 선지 id
